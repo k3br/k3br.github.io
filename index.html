@@ -71,13 +71,13 @@
     <section></section>
     <footer class="py-5 bg-black">
         <div class="container">
-            <p class="text-center text-white m-0 small">Copyright&nbsp;© Kodica, Jan Keber s. p. 2021<span id="copyright-year"></span></p>
+            <p class="text-center text-white m-0 small">Copyright&nbsp;© Kodica, Jan Keber s. p. <span id="copyright-year"></span></p>
         </div>
     </footer>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script>
-        document.querySelector('#copyright-year').innerText = '-' + new Date().getFullYear();
+        document.querySelector('#copyright-year').innerText = '' + new Date().getFullYear();
     </script>
 </body>
 

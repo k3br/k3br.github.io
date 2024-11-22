@@ -1,84 +1,209 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Kodica</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="name" content="kodica">
-    <meta name="description" content="Programiranje in IT svetovanje">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i">
-    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
-    <link rel="stylesheet" href="assets/css/styles.min.css">
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jan KEBER - Freelance Development Engineer</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://www.kodica.si/favicon-32x32.png">
+    <!-- Google Font for Roboto (or Montserrat) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Courier New', Courier, monospace;
+            overflow: hidden;
+            color: white;
+        }
 
+        /* Background Matrix Animation */
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(to right, #000000, #1c1c1c);
+        }
+
+        /* Main Card */
+        .card {
+            background: #1c1c1c;
+            border: 1px solid #444;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            color: white;
+        }
+
+        .logo {
+            max-width: 150px;
+            margin-bottom: 20px;
+        }
+
+        .btn-custom {
+            background-color: #d90429;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 20px;
+            font-weight: bold;
+            color: white;
+            transition: transform 0.2s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #ef233c;
+            transform: scale(1.1);
+        }
+
+        footer {
+            background: #0b0b0b;
+            color: gray;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .highlight {
+            color: #d90429;
+        }
+
+        /* Social Links */
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            font-size: 18px;
+            color: #d90429;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+            border: 1px white;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+            color: #b90429;
+            font-weight: 600;
+        }
+    </style>
+</head>
 <body>
-    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom">
-        <div class="container"><a class="navbar-brand" href="#"><img src="assets/img/kodica_slika_white.png" style="width: 180px;"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarResponsive"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse"
-                id="navbarResponsive">
-                <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation"></li>
-                    <li class="nav-item" role="presentation"></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <header class="masthead text-center text-white" style="background-image: url(assets/img/abstract-formed-by-color-dissolving-water.jpg);">
-        <div class="masthead-content">
-            <div class="container">
-                <h1 class="masthead-heading mb-0" style="color: rgb(255,255,255);background-color: rgba(99,99,99,0.16);">Programiranje</h1>
-                <h2 class="masthead-subheading mb-0" style="color: rgb(255,255,255);background-color: rgba(99,99,99,0.16);">in IT svetovanje</h2>
-            </div>
-        </div>
-    </header>
-    <section>
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 order-lg-2">
-                    <div class="p-5"><img class="rounded-circle img-fluid" src="assets/img/Oracle-Logo-For-Website.png" style="width: 260px;"></div>
-                </div>
-                <div class="col-lg-6 order-lg-1">
-                    <div class="p-5">
-                        <h2 class="display-4">Oracle DB</h2>
-                        <p>Večletne izkušnje z delom na podatkovnih bazah Oracle in PL/SQL procedurah.&nbsp;</p>
-                    </div>
+    <!-- Matrix Background -->
+    <canvas id="matrix"></canvas>
+
+    <!-- Main Card -->
+    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="card text-center p-4">
+            <div class="card-body">
+                <!-- Logo -->
+                <img src="https://www.kodica.si/assets/img/kodica_slika_white.png" alt="Kodica Logo" class="logo">
+                <h1 class="display-4">Jan <span class="highlight">Keber</span></h1>
+                <!-- Name and Title -->
+                <p class="lead">Freelance Development Engineer</p>
+                <hr class="my-4" style="border-color: #444;">
+                <p>Consulting and development services for individuals, startups, and enterprises.</p>
+                <p class="fw-bold">Company: <span class="highlight">Kodica s.p.</span></p>
+                <!-- Social Links (Text instead of Icons) -->
+                <div class="social-icons mt-4">
+                    <button onclick="window.location.href='mailto:jankeber+kodica@gmail.com'" class="btn btn-outline-danger btn-lg">jankeber@gmail.com</button>
+                    <button onclick="window.location.href='https://www.linkedin.com/in/jan-keber-18655aa2/'" class="btn btn-outline-danger btn-lg">LinkedIn</button>
                 </div>
             </div>
         </div>
-    </section>
-    <section>
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 col-xl-5 offset-xl-0 order-lg-1"><div class="p-w"><img class="rounded-circle img-fluid" src="assets/img/Java-Logo.png" style="width: 260px;" /></div></div>
-                <div class="col-lg-6 order-lg-2">
-                    <div class="p-5">
-                        <h2 class="display-4">Java</h2>
-                        <p>Izkušnje z razvojem javanskih aplikacij</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="social-icons"><a href="mailto:jankeber@gmail.com"><i class="icon ion-email" style="color: red;"></i></a><a href="https://www.linkedin.com/in/jan-keber-18655aa2/"><i class="icon ion-social-linkedin" style="color: rgb(255,0,22);"></i></a><a href="#"></a><a href="#"></a></div>
-    <section></section>
-    <section></section>
-    <footer class="bg-black fixed-bottom">
-        <div class="container">
-            <p class="text-center text-white m-0 small">Copyright&nbsp;© Kodica, Jan Keber s. p. <span id="copyright-year"></span></p>
-        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Jan KEBER | Kodica s.p. All Rights Reserved.</p>
+        <p><a href="#" style="text-decoration: none; color: #d90429;">Privacy Policy</a></p>
     </footer>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript for Matrix Animation -->
     <script>
-        document.querySelector('#copyright-year').innerText = '' + new Date().getFullYear();
+        const canvas = document.getElementById("matrix");
+        const ctx = canvas.getContext("2d");
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const fontSize = 16;
+        const columns = Math.floor(canvas.width / fontSize);
+
+        const javaAndSqlCode = [
+            "SELECT * FROM users;",
+            "INSERT INTO orders VALUES (1, 'Laptop');",
+            "public static void main(String[] args) {",
+            "System.out.println(\"Hello, World!\");",
+            "CREATE TABLE products (id INT, name VARCHAR);",
+            "for (int i = 0; i < 10; i++) {",
+            "if (resultSet.next()) {",
+            "PreparedStatement stmt = conn.prepareStatement(query);",
+            "DELETE FROM sessions WHERE expired = 1;",
+            "UPDATE accounts SET balance = balance - 100;",
+            "int sum = a + b;",
+            "public class UserController {",
+            "SELECT id, name FROM customers;",
+            "public void fetchData() throws SQLException {",
+            "return resultList;"
+        ];
+
+        const errorMessages = [
+            "[ERROR]at line 27: ORA 600: Internal error code, arguments: [kdsgrp_2], [3], [32]",
+            "[ERROR]at line 423: ORA 00942: Table or view does not exist",
+            "[ERROR]at line 23: ORA 12154: TNS: Could not resolve the connect identifier specified",
+            "ORA 01555: Snapshot too old: rollback segment number with name '' too small",
+            "ORA 28009: Connection as SYS should be as SYSDBA or SYSOPER",
+            "ORA 12170: TNS: Connect timeout occurred",
+            "ORA 01017: Invalid username/password; logon denied",
+            "ORA 03113: End-of-file on communication channel",
+            "ORA 03114: Not connected to Oracle",
+            "ERROR 404: Not Found",
+            "NULL POINTER EXCEPTION",
+            " DIVIDE BY ZERO",
+            "SQL DEADLOCK",
+            " BUFFER OVERFLOW",
+            "STACK OVERFLOW",
+            "RACE CONDITION",
+            "SEGMENTATION FAULT",
+            "ACCESS VIOLATION",
+            " INFINITE LOOP",
+            "MEMORY LEAK"
+        ];
+
+        const drops = Array.from({ length: columns }, () => 1);
+
+        function drawMatrix() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.8)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            for (let i = 0; i < drops.length; i++) {
+                const isError = Math.random() < 0.001; // 1/1000 chance for an error message
+                const text = isError
+                    ? errorMessages[Math.floor(Math.random() * errorMessages.length)]
+                    : javaAndSqlCode[Math.floor(Math.random() * javaAndSqlCode.length)];
+
+                ctx.fillStyle = isError ? "#ffffff" : "#d90429"; // White for errors, red for regular code
+                ctx.font = `${fontSize}px monospace`;
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.95) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(drawMatrix, 100);
+
+        window.addEventListener("resize", () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
     </script>
 </body>
-
 </html>
